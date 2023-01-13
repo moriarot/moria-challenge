@@ -2,26 +2,24 @@ import logo from './logo.svg';
 import './App.css';
 import AddEvent  from './pages/AddEvent.js';
 import ShowEvents from './pages/ShowAllEvens';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const events = [
-  {
-    name: 'interview', 
-    startTime: '10:00 11/01',
-    endTime: '10:30 11/01'
-  },
-  {
-    name: 'diner', 
-    startTime: '15:00 11/01',
-    endTime: '16:00 11/01'
-  },
-]
+
 function App() {
 
+  
+
+  const [message, setMessage] = useState("");
   const [ addEvent, setAddEvent] = useState(true);
   const [ showEvent, setShowEvent] = useState(true);
+  const [events, setEvents ] = useState({});
 
-
+  useEffect(() => {
+    fetch("http://localhost:8000/events")
+      .then((res) => res.json())
+      .then((data) => setEvents((oldState)=> { return data.events }));
+  }, []);
+console.log("events", events);
   return (
     <div className="App">
 

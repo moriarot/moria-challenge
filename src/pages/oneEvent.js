@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 
 function Event({name, startTime, endTime}) {
     console.log('in one event')
