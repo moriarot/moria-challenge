@@ -2,16 +2,12 @@ import React, { useState } from 'react';
 import UpdateEvent from './UpdateEvent';
 
 function Event({ id, name, startTime, endTime }) {
-  const [update, setUpdate] = useState(false);
+  const [updateMode, setUpdateMode] = useState(false);
 
   const deleteEvent = () => {
-    const body = {
-      id
-    }
-    console.log("in add event front @@", body)
     fetch("http://localhost:8000/delete-event", {
       method: "POST",
-      body: JSON.stringify(body),
+      body: JSON.stringify({ id }),
       headers: {
         "Content-Type": "application/json"
       }
@@ -21,17 +17,23 @@ function Event({ id, name, startTime, endTime }) {
 
   return (
     <div className="event-container">
-      <div>{name}</div>
-      <div>{startTime}</div>
-      <div>{endTime}</div>
-      <button onClick={deleteEvent}><i class="fa-solid fa-trash" />delete</button>
-      <button onClick={() => setUpdate(true)}>update</button>
-      {update && <UpdateEvent
-        id={id}
-        name={name}
-        startTime={startTime}
-        endTime={endTime}
-      />}
+      {!updateMode ? <div className="event-data">
+        <div>{name}</div>
+        <div><span>StartTime: </span>{startTime}</div>
+        <div><span>EndTime: </span>{endTime}</div>
+        <div className="div-buttons">
+          <button onClick={deleteEvent}><i class="fa-solid fa-trash" />delete</button>
+          <button onClick={() => setUpdateMode(true)}>update</button>
+        </div>
+      </div> :
+        <UpdateEvent
+          id={id}
+          name={name}
+          startTime={startTime}
+          endTime={endTime}
+          setUpdateMode = {setUpdateMode}
+        />
+      }
     </div>
   );
 }

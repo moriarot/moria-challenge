@@ -35,4 +35,17 @@
     -webkit-user-select: none;
     touch-action: manipulation;
 }
+.event-container{
+  border: 2px solid;
+    margin: 2vh 1vw;
+    padding: 2vw;
+    width: 25vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-container > div {
+  margin: 6px 0;
+}
 

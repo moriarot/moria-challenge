@@ -53,6 +53,7 @@ console.log("propd ", (new Date(props.startTime)))
         <label for="name">endTime</label>
         <input id="endTime" type="datetime-local" onChange={(e)=> { setEndTime(e.target.value) }} value = {endTime}></input><br/>
         <button type="submit" onClick={(e) => { props.id ? updateEvent(e) : addEvent(e) }}>{props.id ? 'save' : 'add event'}</button>
+        <button onClick={()=> props.setUpdateMode(false)}>cancel</button>
     </form>
     </div>
   );
