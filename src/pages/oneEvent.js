@@ -18,7 +18,7 @@ function Event({ id, name, startTime, endTime }) {
   return (
     <div className="event-container">
       {!updateMode ? <div className="event-data">
-        <div>{name}</div>
+        <div className="name-data">{name}</div>
         <div><span>StartTime: </span>{startTime}</div>
         <div><span>EndTime: </span>{endTime}</div>
         <div className="div-buttons">

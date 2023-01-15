@@ -44,18 +44,21 @@ console.log("propd ", (new Date(props.startTime)))
   }
 
   return (
-    <div className="App">
-    <form className="form-event">
-        <label for="name">name</label>
-        <input id="name" placeholder="name" onChange={(e)=> { setName(e.target.value) }} value = {name}></input><br/>
-        <label for="name">startTime</label>
-        <input id="startTime" type="datetime-local" onChange={(e)=> { setStartTime(e.target.value) }} value = {startTime}></input><br/>
-        <label for="name">endTime</label>
-        <input id="endTime" type="datetime-local" onChange={(e)=> { setEndTime(e.target.value) }} value = {endTime}></input><br/>
+    <form className="event-data">
+        <div className="name-data">
+        <input id="name" className="name-data" placeholder="name" onChange={(e)=> { setName(e.target.value) }} value = {name}></input><br/>
+          </div>
+        <div><span>StartTime: </span>
+        <input id="startTime" type="datetime-local" onChange={(e)=> { setStartTime(e.target.value) }} value = {new Date(props.startTime).toISOString()}></input><br/>
+</div>
+        <div><span>EndTime: </span>
+        <input id="endTime" type="datetime-local" onChange={(e)=> { setEndTime(e.target.value); console.log('e.target.value', e.target.value) }} value = {endTime}></input><br/>
+        </div>
+        <div className="div-buttons">
         <button type="submit" onClick={(e) => { props.id ? updateEvent(e) : addEvent(e) }}>{props.id ? 'save' : 'add event'}</button>
-        <button onClick={()=> props.setUpdateMode(false)}>cancel</button>
-    </form>
-    </div>
+          <button onClick={() => props.setUpdateMode(false)}>cancel</button>
+        </div>
+      </form>    
   );
 }
 

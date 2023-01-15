@@ -35,7 +35,7 @@
     -webkit-user-select: none;
     touch-action: manipulation;
 }
-.event-container{
+.event-container, .add-event-container{
   border: 2px solid;
     margin: 2vh 1vw;
     padding: 2vw;
@@ -45,7 +45,32 @@
     flex-direction: column;
 }
 
-.event-container > div {
+.event-container > div, .add-event-container > div {
   margin: 6px 0;
 }
+.event-container {
+  margin: 2vh auto;
+}
 
+.div-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.event-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.event-data .name-data{
+  font-weight: bold;
+  font-size: 4vh;
+  margin-bottom: 2vh;
+  width: 100%;
+}
+
+.add-event-container{
+  margin: 2vh auto;
+}

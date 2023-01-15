@@ -7,23 +7,28 @@ import UpdateEvent from './pages/UpdateEvent';
 
 function App() {
 
-  
 
-  const [ addEvent, setAddEvent] = useState(true);
-  const [ showEvent, setShowEvent] = useState(true);
-  const [events, setEvents ] = useState({});
+
+  const [addEvent, setAddEvent] = useState(false);
+  const [showEvent, setShowEvent] = useState(true);
+  const [events, setEvents] = useState({});
 
   useEffect(() => {
     fetch("http://localhost:8000/events")
       .then((res) => res.json())
-      .then((data) => setEvents((oldState)=> { return data.events }));
+      .then((data) => setEvents((oldState) => { return data.events }));
   }, []);
-console.log("events", events);
+  console.log("events", events);
   return (
     <div className="App">
       <div className='title'> EVENTS </div>
-      {showEvent && <ShowEvents events = {events} deleteEvents={()=> setShowEvent(false)} />}
-      {addEvent && <UpdateEvent />}
+      <button onClick={() => setAddEvent((oldState) => !oldState)}>Add Event</button>
+
+      {addEvent && <div className='add-event-container'>
+        <UpdateEvent />
+      </div>}
+
+      {showEvent && <ShowEvents events={events} deleteEvents={() => setShowEvent(false)} />}
     </div>
   );
 }
