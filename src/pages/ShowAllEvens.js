@@ -2,16 +2,15 @@ import Event from "./oneEvent";
 import React, { useState } from 'react';
 
 function ShowEvents({events, hideEvents}) {
-    console.log('in this page showAllEvents', Array(events))
     return (
-      <div className="App">
-      {events && events.length &&  events.map(element => {
-    console.log('in this page showAllEvents 2', element)
-
+      <div className="flex-container">
+      {events && events.length &&  events.map((element, index) => {
         return <Event 
+        key = {index}
+        id = {element._id}
         name = {element.name} 
-        startTime = {element.startTime} 
-        endTime = {element.endTime} 
+        startTime = {new Date(element.startTime).toLocaleString()} 
+        endTime = {new Date(element.endTime).toLocaleString()} 
         />
       })}
       </div>

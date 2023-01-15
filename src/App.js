@@ -1,15 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import AddEvent  from './pages/AddEvent.js';
 import ShowEvents from './pages/ShowAllEvens';
 import React, { useState, useEffect } from 'react';
+import UpdateEvent from './pages/UpdateEvent';
 
 
 function App() {
 
   
 
-  const [message, setMessage] = useState("");
   const [ addEvent, setAddEvent] = useState(true);
   const [ showEvent, setShowEvent] = useState(true);
   const [events, setEvents ] = useState({});
@@ -22,15 +21,9 @@ function App() {
 console.log("events", events);
   return (
     <div className="App">
-
-      <button onClick={() => setShowEvent(true)}>show all events</button>
-      <button onClick={() => setAddEvent(true)}>add event</button>
-      <button>delete event</button>
-      <button>update event</button>
-
+      <div className='title'> EVENTS </div>
       {showEvent && <ShowEvents events = {events} deleteEvents={()=> setShowEvent(false)} />}
-      {addEvent && <AddEvent />}
-
+      {addEvent && <UpdateEvent />}
     </div>
   );
 }
