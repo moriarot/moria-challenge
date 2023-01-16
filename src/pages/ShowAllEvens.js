@@ -11,17 +11,17 @@ function ShowEvents() {
       .then((data) => setEvents((oldState) => { return data.events }));
   }, []);
 
-  const getEventByDate = () => {
+  const getEventsByDate = () => {
     fetch("http://localhost:8000/events-by-date?specificDate=" + specificDate)
       .then((res) => res.json())
-      .then((data) => setEvents((oldState) => { return data.events }));
+      .then((data) => setEvents((oldState) => data.events));
   }
 
   return (
     <div className="events-container">
-      <div>events from date:
+      <div className="filter-date">events from date:
         <input id="specificDate" type="date" onChange={(e) => { setSpecificDate(e.target.value) }}></input>
-        <button onClick={getEventByDate}>Show Events</button>
+        <button onClick={getEventsByDate}>Show Events</button>
 
       </div>
       <div className="flex-container">
@@ -33,7 +33,7 @@ function ShowEvents() {
             name={element.name}
             startTime={new Date(element.startTime)}
             endTime={new Date(element.endTime)}
-            setEvents = {setEvents}
+            setEvents={setEvents}
           />
         })}
       </div>

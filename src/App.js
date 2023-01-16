@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <div className='title'> EVENTS </div>
-      <button onClick={() => setAddEvent((oldState) => !oldState)}>Add Event</button>
+      <button className='add-event' onClick={() => setAddEvent((oldState) => !oldState)}>Add Event</button>
 
       {addEvent && <div className='add-event-container'>
         <UpdateEvent />

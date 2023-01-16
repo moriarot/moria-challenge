@@ -3,7 +3,7 @@
   margin: 2vh 2vw;
 }
 
-.title{
+.title {
   font-weight: bold;
 }
 
@@ -13,41 +13,44 @@
   flex-wrap: wrap;
 }
 
-.event-container button{
-    background-color: rgba(51, 51, 51, 0.05);
-    border-radius: 8px;
-    border-width: 0;
-    color: #333333;
-    cursor: pointer;
-    display: inline-block;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 10px 12px;
-    text-align: center;
-    transition: all 200ms;
-    vertical-align: baseline;
-    white-space: nowrap;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-.event-container, .add-event-container{
-  border: 2px solid;
-    margin: 2vh 1vw;
-    padding: 2vw;
-    width: 25vw;
-    height: 30vh;
-    display: flex;
-    flex-direction: column;
+button {
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-.event-container > div, .add-event-container > div {
+.event-container,
+.add-event-container {
+  border: 2px solid;
+  margin: 2vh 1vw;
+  padding: 2vw;
+  width: 25vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-container>div,
+.add-event-container>div {
   margin: 6px 0;
 }
+
 .event-container {
   margin: 2vh auto;
 }
@@ -55,6 +58,11 @@
 .div-buttons {
   display: flex;
   justify-content: space-around;
+  margin-top: 2vh;
+}
+
+.div-buttons button {
+  padding: 10px 12px;
 }
 
 .event-data {
@@ -64,13 +72,31 @@
   height: 100%;
 }
 
-.event-data .name-data{
+.event-data .name-data {
   font-weight: bold;
   font-size: 4vh;
   margin-bottom: 2vh;
   width: 100%;
 }
 
-.add-event-container{
+.add-event-container {
   margin: 2vh auto;
+}
+
+.filter-date {
+  display: flex;
+  justify-content: center;
+  gap: 2vh;
+  margin: 1vh;
+  align-items: baseline;
+}
+
+.filter-date button {
+  border: 1px solid;
+}
+
+button.add-event {
+  border: 1px solid;
+  padding: 6px 12px;
+  margin: 1vh;
 }

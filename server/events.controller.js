@@ -4,8 +4,8 @@ const getAllEvents = (req, res, cb) => {
     return eventsService.getAllEvents(req, res, cb);
 } 
 
-const getEventByDate = (specificDate, req, res, cb) => {
-    return eventsService.getEventByDate(specificDate, req, res, cb);
+const getEventsByDate = (specificDate, req, res, cb) => {
+    return eventsService.getEventsByDate(specificDate, req, res, cb);
 } 
 
 const addEvent = (req, res) => {
@@ -19,7 +19,7 @@ const deleteEvent = (req, res, cb) => {
 } 
 module.exports = {
     getAllEvents,
-    getEventByDate,
+    getEventsByDate,
     addEvent,
     updateEvent,
     deleteEvent

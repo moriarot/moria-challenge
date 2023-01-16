@@ -1,7 +1,7 @@
 const event = require('./models/event.js');
 
 const getAllEvents = (req, res, cb) => {
-    event.find((err, docs) => {
+    event.find({ startTime: { $gte: new Date() } }).sort({ startTime: 'asc' }).exec((err, docs) => {
         if (!err) {
             docs.map(element => {
                 const date = new Date(element.startTime)
@@ -14,7 +14,7 @@ const getAllEvents = (req, res, cb) => {
         }
     })
 }
-const getEventByDate = (specificDate, req, res, cb) => {
+const getEventsByDate = (specificDate, req, res, cb) => {
     const date = new Date(specificDate);
     const dateFilter = {
         $gte: specificDate,
@@ -75,7 +75,7 @@ const deleteEvent = (req, res, cb) => {
 
 module.exports = {
     getAllEvents,
-    getEventByDate,
+    getEventsByDate,
     addEvent,
     updateEvent,
     deleteEvent
