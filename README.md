@@ -15,3 +15,4 @@ npm run dev
 
 ## Database
 monogodb
+axemple to collection event in file ./events.dump.json

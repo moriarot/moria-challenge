@@ -26,7 +26,7 @@ function ShowEvents() {
       </div>
       <div className="flex-container">
 
-        {events && events.length && events.map((element, index) => {
+        {events && events.length ? events.map((element, index) => {
           return <Event
             key={index}
             id={element._id}
@@ -35,7 +35,8 @@ function ShowEvents() {
             endTime={new Date(element.endTime)}
             setEvents={setEvents}
           />
-        })}
+        }) :
+          <div>There are no events</div>}
       </div>
     </div>
   );
