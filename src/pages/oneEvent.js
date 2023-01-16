@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UpdateEvent from './UpdateEvent';
+import AddAndUpdateEvent from './AddAndUpdateEvent';
 
 function Event({ id, name, startTime, endTime, setEvents }) {
   const [updateMode, setUpdateMode] = useState(false);
@@ -31,7 +31,7 @@ function Event({ id, name, startTime, endTime, setEvents }) {
           <button onClick={() => setUpdateMode(true)}>update</button>
         </div>
       </div> :
-        <UpdateEvent
+        <AddAndUpdateEvent
           id={id}
           name={name}
           startTime={startTime}

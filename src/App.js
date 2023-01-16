@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import ShowEvents from './pages/ShowAllEvens';
 import React, { useState, useEffect } from 'react';
-import UpdateEvent from './pages/UpdateEvent';
+import UpdateEvent from './pages/AddAndUpdateEvent';
 
 
 function App() {

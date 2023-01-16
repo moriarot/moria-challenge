@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
-mongoose.connect("mongodb://127.0.0.1:27017/moriaTest"
+mongoose.connect("mongodb://127.0.0.1:27017/moria-challenge"
     , {
         useNewUrlParser: true,
         useUnifiedTopology: true

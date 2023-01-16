@@ -33,11 +33,13 @@ button {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  border: rgba(51, 51, 51, 0.2) 1px solid;
 }
 
 .event-container,
 .add-event-container {
   border: 2px solid;
+  border-radius: 8px;
   margin: 2vh 1vw;
   padding: 2vw;
   width: 25vw;
@@ -91,12 +93,7 @@ button {
   align-items: baseline;
 }
 
-.filter-date button {
-  border: 1px solid;
-}
-
 button.add-event {
-  border: 1px solid;
   padding: 6px 12px;
   margin: 1vh;
 }
