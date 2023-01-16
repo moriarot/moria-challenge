@@ -14,8 +14,8 @@ const addEvent = (req, res) => {
 const updateEvent = (req, res) => {
     eventsService.updateEvent(req, res);
 } 
-const deleteEvent = (req, res) => {
-    eventsService.deleteEvent(req, res);
+const deleteEvent = (req, res, cb) => {
+    eventsService.deleteEvent(req, res, cb);
 } 
 module.exports = {
     getAllEvents,

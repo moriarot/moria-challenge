@@ -41,5 +41,7 @@ app.post("/update-event", jsonParser, function (req, res) {
 });
 
 app.post("/delete-event", jsonParser, function (req, res) {
-    eventsController.deleteEvent(req, res);
+    eventsController.deleteEvent(req, res, (result) => {
+        res.json({ result });
+    });
 });

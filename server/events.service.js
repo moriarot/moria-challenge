@@ -61,13 +61,14 @@ const updateEvent = (req, res) => {
     })
 }
 
-const deleteEvent = (req, res) => {
+const deleteEvent = (req, res, cb) => {
     event.deleteOne({ _id: req.body.id }, function (err, docs) {
         if (err) {
             console.log(err);
         }
         else {
             console.log("Result : ", docs);
+            cb(docs);
         }
     })
 }

@@ -21,7 +21,7 @@ function ShowEvents() {
     <div className="events-container">
       <div>events from date:
         <input id="specificDate" type="date" onChange={(e) => { setSpecificDate(e.target.value) }}></input>
-        <button onClick={getEventByDate}>Show Event</button>
+        <button onClick={getEventByDate}>Show Events</button>
 
       </div>
       <div className="flex-container">
@@ -33,6 +33,7 @@ function ShowEvents() {
             name={element.name}
             startTime={new Date(element.startTime)}
             endTime={new Date(element.endTime)}
+            setEvents = {setEvents}
           />
         })}
       </div>

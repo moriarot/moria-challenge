@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import UpdateEvent from './UpdateEvent';
 
-function Event({ id, name, startTime, endTime }) {
+function Event({ id, name, startTime, endTime, setEvents }) {
   const [updateMode, setUpdateMode] = useState(false);
 
   const deleteEvent = () => {
@@ -13,6 +13,11 @@ function Event({ id, name, startTime, endTime }) {
       }
     })
       .then((res) => res.json())
+      .then((res)=> {
+        if(res && res.result && res.result.deletedCount == 1 ){
+          setEvents((oldState) => oldState.filter((element) => element._id != id)) // update front
+        }
+      })
   }
 
   return (
@@ -31,7 +36,7 @@ function Event({ id, name, startTime, endTime }) {
           name={name}
           startTime={startTime}
           endTime={endTime}
-          setUpdateMode = {setUpdateMode}
+          setUpdateMode={setUpdateMode}
         />
       }
     </div>
