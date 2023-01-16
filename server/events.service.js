@@ -1,4 +1,4 @@
-const event = require('./models/event.js');
+const event = require('./event.schema.js');
 
 const getAllEvents = (req, res, cb) => {
     event.find({ startTime: { $gte: new Date() } }).sort({ startTime: 'asc' }).exec((err, docs) => {

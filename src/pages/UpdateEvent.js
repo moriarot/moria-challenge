@@ -58,13 +58,13 @@ function UpdateEvent(props) {
   return (
     <form className="event-data">
       <div className="name-data">
-        <input id="name" className="name-data" placeholder="name" onChange={(e) => { setName(e.target.value) }} value={name}></input><br />
+        <input id="name" className="name-data" placeholder="name" required onChange={(e) => { setName(e.target.value) }} value={name}></input><br />
       </div>
       <div><span>StartTime: </span>
-        <input id="startTime" type="datetime-local" onChange={(e) => { setStartTime(e.target.value) }} value={startTime}></input><br />
+        <input id="startTime" type="datetime-local" required onChange={(e) => { setStartTime(e.target.value) }} value={startTime}></input><br />
       </div>
       <div><span>EndTime: </span>
-        <input id="endTime" type="datetime-local" onChange={(e) => { setEndTime(e.target.value); console.log('e.target.value', e.target.value) }} value={endTime}></input><br />
+        <input id="endTime" type="datetime-local" required onChange={(e) => { setEndTime(e.target.value); console.log('e.target.value', e.target.value) }} value={endTime}></input><br />
       </div>
       <div className="div-buttons">
         <button onClick={() => props.setUpdateMode(false)}>cancel</button>
