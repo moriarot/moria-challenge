@@ -19,8 +19,8 @@ function Event({ id, name, startTime, endTime }) {
     <div className="event-container">
       {!updateMode ? <div className="event-data">
         <div className="name-data">{name}</div>
-        <div><span>StartTime: </span>{startTime}</div>
-        <div><span>EndTime: </span>{endTime}</div>
+        <div><span>StartTime: </span>{startTime.toLocaleString()}</div>
+        <div><span>EndTime: </span>{endTime.toLocaleString()}</div>
         <div className="div-buttons">
           <button onClick={deleteEvent}><i class="fa-solid fa-trash" />delete</button>
           <button onClick={() => setUpdateMode(true)}>update</button>

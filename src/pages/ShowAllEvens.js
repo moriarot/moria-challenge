@@ -1,7 +1,15 @@
 import Event from "./oneEvent";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function ShowEvents({events, hideEvents}) {
+function ShowEvents() {
+  const [events, setEvents] = useState({});
+
+  useEffect(() => {
+    fetch("http://localhost:8000/events")
+      .then((res) => res.json())
+      .then((data) => setEvents((oldState) => { return data.events }));
+  }, []);
+
     return (
       <div className="flex-container">
       {events && events.length &&  events.map((element, index) => {
@@ -9,8 +17,8 @@ function ShowEvents({events, hideEvents}) {
         key = {index}
         id = {element._id}
         name = {element.name} 
-        startTime = {new Date(element.startTime).toLocaleString()} 
-        endTime = {new Date(element.endTime).toLocaleString()} 
+        startTime = {new Date(element.startTime)} 
+        endTime = {new Date(element.endTime)} 
         />
       })}
       </div>
