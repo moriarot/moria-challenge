@@ -26,6 +26,12 @@ app.get('/events', async (req, res) => {
     });
 });
 
+app.get('/events-by-date', async (req, res) => {
+    eventsController.getEventByDate(req.query.specificDate, req, res, (docs) => {
+        res.json({ events: docs });
+    });
+});
+
 app.post("/events", jsonParser, function (req, res) {
     eventsController.addEvent(req, res);
 });

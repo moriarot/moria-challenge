@@ -1,7 +1,26 @@
 const event = require('./models/event.js');
 
-const getAllEvents = async (req, res, cb) => {
+const getAllEvents = (req, res, cb) => {
     event.find((err, docs) => {
+        if (!err) {
+            docs.map(element => {
+                const date = new Date(element.startTime)
+                element.startTime = date.toLocaleString();
+                return element
+            })
+            cb(docs);
+        } else {
+            console.log('Failed to retrieve the Course List: ' + err);
+        }
+    })
+}
+const getEventByDate = (specificDate, req, res, cb) => {
+    const date = new Date(specificDate);
+    const dateFilter = {
+        $gte: specificDate,
+        $lt: date.setDate(date.getDate() + 1)
+    };
+    event.find({ startTime: dateFilter }, (err, docs) => {
         if (!err) {
             docs.map(element => {
                 const date = new Date(element.startTime)
@@ -55,6 +74,7 @@ const deleteEvent = (req, res) => {
 
 module.exports = {
     getAllEvents,
+    getEventByDate,
     addEvent,
     updateEvent,
     deleteEvent

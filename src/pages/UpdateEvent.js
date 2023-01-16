@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
+const NUMBER_PREFIX = "0";
 
 const formaterDate = (date) => {
+  if (!date) return;
   const dateStringArr = date.toLocaleDateString().split('.').reverse();
-  let dateString = '', i;
-  for (i = 0; i < dateStringArr.length - 1; i++) {
+  for (let i = 1; i < dateStringArr.length; i++) {
     if (dateStringArr[i] < 10) {
-      dateString += '0';
+      dateStringArr[i] = NUMBER_PREFIX.concat(dateStringArr[i]);
     }
-    dateString += dateStringArr[i] + '-'
   }
-  dateString += dateStringArr[i];
+  const dateString = dateStringArr.join("-")
   return dateString + 'T' + date.toLocaleTimeString();
 }
 
