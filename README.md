@@ -4,14 +4,16 @@ to run project:
 
 git clone https://github.com/moriarot/moria-challenge.git
 
-cd ./moria-challenge
+cd ./moria-challenge ->
+
 npm install
 
 ## run client
 npm start
 
 ## run server
-cd ./server
+cd ./server ->
+
 npm run dev
 
 ## Database
