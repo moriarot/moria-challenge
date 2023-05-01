@@ -4,6 +4,7 @@ to run project:
 
 git clone https://github.com/moriarot/moria-challenge.git
 
+cd ./moria-challenge
 npm install
 
 ## run client
