@@ -3,11 +3,6 @@ const event = require('./event.schema.js');
 const getAllEvents = (req, res, cb) => {
     event.find({ startTime: { $gte: new Date() } }).sort({ startTime: 'asc' }).exec((err, docs) => {
         if (!err) {
-            docs.map(element => {
-                const date = new Date(element.startTime)
-                element.startTime = date.toLocaleString();
-                return element
-            })
             cb(docs);
         } else {
             console.log('Failed to retrieve the Course List: ' + err);

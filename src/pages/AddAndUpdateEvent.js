@@ -67,7 +67,7 @@ function UpdateEvent(props) {
         <input id="endTime" type="datetime-local" required onChange={(e) => { setEndTime(e.target.value); console.log('e.target.value', e.target.value) }} value={endTime}></input><br />
       </div>
       <div className="div-buttons">
-        <button onClick={() => props.setUpdateMode(false)}>cancel</button>
+        <button onClick={props.id ? () => props.setUpdateMode(false) : ()=>{} }>cancel</button>
         <button type="submit" onClick={(e) => { props.id ? updateEvent(e) : addEvent(e) }}>{props.id ? 'save' : 'add event'}</button>
       </div>
     </form>
